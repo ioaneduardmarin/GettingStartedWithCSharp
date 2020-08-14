@@ -8,24 +8,16 @@ namespace GettingStartedWithCSharp
 
     public partial class Calculator : Form
     {
-        /*static string path = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).FullName;
-        static string relPath = @"\Output\Output.txt";
-        string finalPath = path + relPath;
-        */
-
-
         double value = 0;
         string operation = "";
         string memoryClick = "";
         bool isMemoryStored = false;
         
-        double memory = 0;
+        double memory;
         bool operation_pressed = false;
         bool result_obtained = false;
 
-
-
-        public Calculator()
+       public Calculator()
         {
             InitializeComponent();
         }
@@ -115,61 +107,50 @@ namespace GettingStartedWithCSharp
                 }
             }
         }
-
+        
         private void Memory_click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
             memoryClick = b.Text;
+            
 
             if (!isMemoryStored)
             {
-                switch (memoryClick)
-                {
-                    case "MC":
-                        result.Text = "Error! Memory is Empty";
-                        break;
-                    case "MR":
-                        result.Text = "Error! Memory is Empty";
-                        break;
-                    case "MS":
-                        memory = Double.Parse(result.Text);
-                        isMemoryStored = true;
-                        break;
-                    case "M+":
-                        result.Text = "Error! Memory is Empty";
-                        break;
-                    case "M-":
-                        result.Text = "Error! Memory is Empty";
-                        break;
-                    default:
-                        break;
-                }
+                MC.Enabled = false;
+                MR.Enabled = false;
+                M.Enabled = false;
             }
-            else
+
+            switch (memoryClick)
             {
-                switch (memoryClick)
-                {
-                    case "MC":
-                        isMemoryStored = false;
-                        break;
-                    case "MR":
-                        result.Text = memory.ToString();
-                        break;
-                    case "MS":
-                        memory = Double.Parse(result.Text);
-                        isMemoryStored = true;
-                        break;
-                    case "M+":
-                        memory = (Double.Parse(result.Text) + memory);
-                        result.Text = memory.ToString();
-                        break;
-                    case "M-":
-                        memory = (memory - Double.Parse(result.Text));
-                        result.Text = memory.ToString();
-                        break;
-                    default:
-                        break;
-                }
+                case "MC":
+                    isMemoryStored = false;
+                    MC.Enabled = false;
+                    MR.Enabled = false;
+                    M.Enabled = false;
+                    break;
+                case "MR":
+                    result.Text = memory.ToString();
+                    break;
+                case "MS":
+                    memory = Double.Parse(result.Text);
+                    isMemoryStored = true;
+                    MC.Enabled = true;
+                    MR.Enabled = true;
+                    M.Enabled = true;
+                    break;
+                case "M+":
+                    memory = (Double.Parse(result.Text) + memory);
+                    break;
+                case "M-":
+                    memory = (memory - Double.Parse(result.Text));
+                    break;
+                case "M":
+                    MemoryShow.SetToolTip(M, memory.ToString());
+                    
+                    break;
+                default:
+                    break;
             }
         }
     }

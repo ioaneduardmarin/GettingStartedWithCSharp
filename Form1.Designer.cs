@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,11 +53,13 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.Istoric = new System.Windows.Forms.TextBox();
             this.button20 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
+            this.MC = new System.Windows.Forms.Button();
+            this.MPlus = new System.Windows.Forms.Button();
+            this.MS = new System.Windows.Forms.Button();
+            this.MR = new System.Windows.Forms.Button();
+            this.MMinus = new System.Windows.Forms.Button();
+            this.M = new System.Windows.Forms.Button();
+            this.MemoryShow = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,7 +246,7 @@
             // button16
             // 
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(216, 153);
+            this.button16.Location = new System.Drawing.Point(216, 204);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(45, 45);
             this.button16.TabIndex = 15;
@@ -255,7 +258,7 @@
             // button17
             // 
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.Location = new System.Drawing.Point(216, 102);
+            this.button17.Location = new System.Drawing.Point(216, 153);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(45, 45);
             this.button17.TabIndex = 16;
@@ -267,9 +270,9 @@
             // button18
             // 
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(213, 204);
+            this.button18.Location = new System.Drawing.Point(213, 255);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(45, 147);
+            this.button18.Size = new System.Drawing.Size(45, 96);
             this.button18.TabIndex = 17;
             this.button18.Tag = "";
             this.button18.Text = "=";
@@ -334,76 +337,92 @@
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.SalveazaIstoricul_click);
             // 
-            // button22
+            // MC
             // 
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.Location = new System.Drawing.Point(10, 53);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(45, 45);
-            this.button22.TabIndex = 24;
-            this.button22.Tag = "";
-            this.button22.Text = "MC";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.Memory_click);
+            this.MC.Enabled = false;
+            this.MC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MC.Location = new System.Drawing.Point(10, 53);
+            this.MC.Name = "MC";
+            this.MC.Size = new System.Drawing.Size(45, 45);
+            this.MC.TabIndex = 24;
+            this.MC.Tag = "";
+            this.MC.Text = "MC";
+            this.MC.UseVisualStyleBackColor = true;
+            this.MC.Click += new System.EventHandler(this.Memory_click);
             // 
-            // button25
+            // MPlus
             // 
-            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(163, 54);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(45, 45);
-            this.button25.TabIndex = 27;
-            this.button25.Tag = "";
-            this.button25.Text = "M+";
-            this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.Memory_click);
+            this.MPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MPlus.Location = new System.Drawing.Point(163, 54);
+            this.MPlus.Name = "MPlus";
+            this.MPlus.Size = new System.Drawing.Size(45, 45);
+            this.MPlus.TabIndex = 27;
+            this.MPlus.Tag = "";
+            this.MPlus.Text = "M+";
+            this.MPlus.UseVisualStyleBackColor = true;
+            this.MPlus.Click += new System.EventHandler(this.Memory_click);
             // 
-            // button26
+            // MS
             // 
-            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button26.Location = new System.Drawing.Point(112, 54);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(45, 45);
-            this.button26.TabIndex = 28;
-            this.button26.Tag = "";
-            this.button26.Text = "MS";
-            this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.Memory_click);
+            this.MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MS.Location = new System.Drawing.Point(112, 54);
+            this.MS.Name = "MS";
+            this.MS.Size = new System.Drawing.Size(45, 45);
+            this.MS.TabIndex = 28;
+            this.MS.Tag = "";
+            this.MS.Text = "MS";
+            this.MS.UseVisualStyleBackColor = true;
+            this.MS.Click += new System.EventHandler(this.Memory_click);
             // 
-            // button27
+            // MR
             // 
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.Location = new System.Drawing.Point(61, 54);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(45, 45);
-            this.button27.TabIndex = 29;
-            this.button27.Tag = "";
-            this.button27.Text = "MR";
-            this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.Memory_click);
+            this.MR.Enabled = false;
+            this.MR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MR.Location = new System.Drawing.Point(61, 54);
+            this.MR.Name = "MR";
+            this.MR.Size = new System.Drawing.Size(45, 45);
+            this.MR.TabIndex = 29;
+            this.MR.Tag = "";
+            this.MR.Text = "MR";
+            this.MR.UseVisualStyleBackColor = true;
+            this.MR.Click += new System.EventHandler(this.Memory_click);
             // 
-            // button21
+            // MMinus
             // 
-            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.Location = new System.Drawing.Point(216, 54);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(45, 45);
-            this.button21.TabIndex = 30;
-            this.button21.Tag = "";
-            this.button21.Text = "M-";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.Memory_click);
+            this.MMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MMinus.Location = new System.Drawing.Point(216, 54);
+            this.MMinus.Name = "MMinus";
+            this.MMinus.Size = new System.Drawing.Size(45, 45);
+            this.MMinus.TabIndex = 30;
+            this.MMinus.Tag = "";
+            this.MMinus.Text = "M-";
+            this.MMinus.UseVisualStyleBackColor = true;
+            this.MMinus.Click += new System.EventHandler(this.Memory_click);
+            // 
+            // M
+            // 
+            this.M.Enabled = false;
+            this.M.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M.Location = new System.Drawing.Point(216, 102);
+            this.M.Name = "M";
+            this.M.Size = new System.Drawing.Size(45, 45);
+            this.M.TabIndex = 31;
+            this.M.Tag = "";
+            this.M.Text = "M";
+            this.M.UseVisualStyleBackColor = true;
+            this.M.Click += new System.EventHandler(this.Memory_click);
             // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 474);
-            this.Controls.Add(this.button21);
-            this.Controls.Add(this.button27);
-            this.Controls.Add(this.button26);
-            this.Controls.Add(this.button25);
-            this.Controls.Add(this.button22);
+            this.Controls.Add(this.M);
+            this.Controls.Add(this.MMinus);
+            this.Controls.Add(this.MR);
+            this.Controls.Add(this.MS);
+            this.Controls.Add(this.MPlus);
+            this.Controls.Add(this.MC);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.Istoric);
             this.Controls.Add(this.button19);
@@ -464,11 +483,13 @@
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.TextBox Istoric;
         private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button MR;
+        private System.Windows.Forms.Button MS;
+        private System.Windows.Forms.Button MPlus;
+        private System.Windows.Forms.Button MC;
+        private System.Windows.Forms.Button MMinus;
+        private System.Windows.Forms.Button M;
+        private System.Windows.Forms.ToolTip MemoryShow;
     }
 }
 
