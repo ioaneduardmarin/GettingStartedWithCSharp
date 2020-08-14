@@ -104,7 +104,7 @@ namespace GettingStartedWithCSharp
                 {
                     
                        
-                    sw.Write(Istoric.Text.Remove((Istoric.Text.Length-1),1));
+                    sw.Write(Istoric.Text.Remove((Istoric.Text.Length-2),1));
                     sw.Dispose();
 
                 }
