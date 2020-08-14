@@ -164,7 +164,7 @@ namespace GettingStartedWithCSharp
                         result.Text = memory.ToString();
                         break;
                     case "M-":
-                        memory = (Double.Parse(result.Text) - memory);
+                        memory = (memory - Double.Parse(result.Text));
                         result.Text = memory.ToString();
                         break;
                     default:
