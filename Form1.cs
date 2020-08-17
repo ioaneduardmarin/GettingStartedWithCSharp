@@ -99,11 +99,8 @@ namespace GettingStartedWithCSharp
                 string path = sfd.FileName;
                 using (var sw = new StreamWriter(File.Create(path)))
                 {
-
-
                     sw.Write(Istoric.Text.Remove((Istoric.Text.Length - 2), 1));
                     sw.Dispose();
-
                 }
             }
         }
@@ -113,7 +110,6 @@ namespace GettingStartedWithCSharp
             Button b = (Button)sender;
             memoryClick = b.Text;
             
-
             if (!isMemoryStored)
             {
                 MC.Enabled = false;
@@ -124,10 +120,18 @@ namespace GettingStartedWithCSharp
             switch (memoryClick)
             {
                 case "MC":
-                    isMemoryStored = false;
-                    MC.Enabled = false;
-                    MR.Enabled = false;
-                    M.Enabled = false;
+
+                    string mesaj = "Do you want to clear the memory?";
+                    string titlu = "Memory Clear";
+                    MessageBoxButtons butoane = MessageBoxButtons.YesNo;
+                    DialogResult rezultat = MessageBox.Show(mesaj, titlu, butoane);
+                    if (rezultat == DialogResult.Yes)
+                    {
+                        isMemoryStored = false;
+                        MC.Enabled = false;
+                        MR.Enabled = false;
+                        M.Enabled = false;
+                    }
                     break;
                 case "MR":
                     result.Text = memory.ToString();
@@ -147,7 +151,6 @@ namespace GettingStartedWithCSharp
                     break;
                 case "M":
                     MemoryShow.SetToolTip(M, memory.ToString());
-                    
                     break;
                 default:
                     break;
