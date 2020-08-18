@@ -12,12 +12,12 @@ namespace GettingStartedWithCSharp
         string operation = "";
         string memoryClick = "";
         bool isMemoryStored = false;
-        
-        double memory;
+
+        decimal memory;
         bool operation_pressed = false;
         bool result_obtained = false;
 
-       public Calculator()
+        public Calculator()
         {
             InitializeComponent();
         }
@@ -44,10 +44,17 @@ namespace GettingStartedWithCSharp
 
         private void Operator_Click(object sender, EventArgs e)
         {
-
             Button b = (Button)sender;
             operation = b.Text;
-            value = (decimal)Double.Parse(result.Text);
+            try
+            {
+                value = (decimal)(Double.Parse(result.Text));
+            }
+            catch (System.FormatException) {
+                MessageBox.Show("Introduceti o valoare valida");
+                result.Text = "0";
+                equation.Text = "0";
+            }
             operation_pressed = true;
             equation.Text = value + " " + operation;
         }
@@ -59,26 +66,39 @@ namespace GettingStartedWithCSharp
             switch (operation)
             {
                 case "+":
-                    result.Text = (value + (decimal)Double.Parse(result.Text)).ToString();
+                    result.Text = (value + (decimal)Double.Parse(result.Text)).ToString("0.000");
                     break;
                 case "-":
-                    result.Text = (value - (decimal)Double.Parse(result.Text)).ToString();
+                    result.Text = (value - (decimal)Double.Parse(result.Text)).ToString("0.000");
                     break;
                 case "*":
-                    result.Text = (value * (decimal)Double.Parse(result.Text)).ToString();
+                    result.Text = (value * (decimal)Double.Parse(result.Text)).ToString("0.000");
                     break;
                 case "/":
                     try
                     {
-                        result.Text = (value / (decimal)Double.Parse(result.Text)).ToString();
+                        result.Text = (value / (decimal)Double.Parse(result.Text)).ToString("0.000");
                     }
                     catch (DivideByZeroException)
                     {
-                       MessageBox.Show("Impartirea la 0 nu este o operatie valida");
+                        MessageBox.Show("Impartirea la 0 nu este o operatie valida");
+                        result.Text = "operatie nevalida";
                     }
                     break;
                 case "sqrt":
-                    result.Text = (Math.Sqrt((double)value)).ToString(); 
+                    if (value < 0)
+                    {
+                        try { throw new Exception("Radacina patrata a numerelor negative nu este posibila"); }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Radacina patrata a numerelor negative nu este posibila");
+                        }
+                        result.Text = "operatie nevalida";
+                    }
+                    else
+                    {
+                        result.Text = (Math.Sqrt((double)value)).ToString("0.000");
+                    }
                     break;
                 default:
                     break;
@@ -95,8 +115,6 @@ namespace GettingStartedWithCSharp
             value = 0;
         }
 
-
-
         private void SalveazaIstoricul_click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -111,12 +129,12 @@ namespace GettingStartedWithCSharp
                 }
             }
         }
-        
+
         private void Memory_click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
             memoryClick = b.Text;
-            
+
             if (!isMemoryStored)
             {
                 MC.Enabled = false;
@@ -143,17 +161,17 @@ namespace GettingStartedWithCSharp
                     result.Text = memory.ToString();
                     break;
                 case "MS":
-                    memory = Double.Parse(result.Text);
+                    memory = (decimal)Double.Parse(result.Text);
                     isMemoryStored = true;
                     MC.Enabled = true;
                     MR.Enabled = true;
                     M.Enabled = true;
                     break;
                 case "M+":
-                    memory = (Double.Parse(result.Text) + memory);
+                    memory += (decimal)(Double.Parse(result.Text));
                     break;
                 case "M-":
-                    memory = (memory - Double.Parse(result.Text));
+                    memory -= (decimal)Double.Parse(result.Text);
                     break;
                 case "M":
                     MemoryShow.SetToolTip(M, memory.ToString());
@@ -163,14 +181,5 @@ namespace GettingStartedWithCSharp
             }
         }
 
-        private void Calculator_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void result_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

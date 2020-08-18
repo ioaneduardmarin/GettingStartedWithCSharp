@@ -296,7 +296,6 @@
             this.result.TabStop = false;
             this.result.Text = "0";
             this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.result.TextChanged += new System.EventHandler(this.result_TextChanged);
             // 
             // equation
             // 
@@ -328,7 +327,7 @@
             // Istoric
             // 
             this.Istoric.BackColor = System.Drawing.SystemColors.Info;
-            this.Istoric.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Istoric.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Istoric.Location = new System.Drawing.Point(10, 357);
             this.Istoric.Multiline = true;
             this.Istoric.Name = "Istoric";
@@ -463,8 +462,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.Calculator_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
+             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
