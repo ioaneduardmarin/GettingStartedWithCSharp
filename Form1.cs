@@ -8,7 +8,7 @@ namespace GettingStartedWithCSharp
 
     public partial class Calculator : Form
     {
-        double value = 0;
+        decimal value = 0;
         string operation = "";
         string memoryClick = "";
         bool isMemoryStored = false;
@@ -47,7 +47,7 @@ namespace GettingStartedWithCSharp
 
             Button b = (Button)sender;
             operation = b.Text;
-            value = Double.Parse(result.Text);
+            value = (decimal)Double.Parse(result.Text);
             operation_pressed = true;
             equation.Text = value + " " + operation;
         }
@@ -59,19 +59,26 @@ namespace GettingStartedWithCSharp
             switch (operation)
             {
                 case "+":
-                    result.Text = (value + Double.Parse(result.Text)).ToString();
+                    result.Text = (value + (decimal)Double.Parse(result.Text)).ToString();
                     break;
                 case "-":
-                    result.Text = (value - Double.Parse(result.Text)).ToString();
+                    result.Text = (value - (decimal)Double.Parse(result.Text)).ToString();
                     break;
                 case "*":
-                    result.Text = (value * Double.Parse(result.Text)).ToString();
+                    result.Text = (value * (decimal)Double.Parse(result.Text)).ToString();
                     break;
                 case "/":
-                    result.Text = (value / Double.Parse(result.Text)).ToString();
+                    try
+                    {
+                        result.Text = (value / (decimal)Double.Parse(result.Text)).ToString();
+                    }
+                    catch (DivideByZeroException)
+                    {
+                       MessageBox.Show("Impartirea la 0 nu este o operatie valida");
+                    }
                     break;
                 case "sqrt":
-                    result.Text = (Math.Sqrt(value)).ToString();
+                    result.Text = (Math.Sqrt((double)value)).ToString(); 
                     break;
                 default:
                     break;
@@ -120,7 +127,6 @@ namespace GettingStartedWithCSharp
             switch (memoryClick)
             {
                 case "MC":
-
                     string mesaj = "Do you want to clear the memory?";
                     string titlu = "Memory Clear";
                     MessageBoxButtons butoane = MessageBoxButtons.YesNo;
@@ -155,6 +161,16 @@ namespace GettingStartedWithCSharp
                 default:
                     break;
             }
+        }
+
+        private void Calculator_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void result_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
